@@ -72,8 +72,9 @@ export default function Page() {
 
     try {
       setLoading(true);
+      const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 
-      const resp = await fetch("/api/match", {
+      const resp = await fetch(`${API_BASE}/match`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ job_text, resume_text }),
